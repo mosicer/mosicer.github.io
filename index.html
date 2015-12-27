@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/27/hexo使用方法/">hexo使用方法</a>
+      <a class="article-title" href="/2015/12/27/hexo使用方法/">hexo学习笔记</a>
     </h1>
   
 
@@ -89,31 +89,63 @@
       
         <hr>
 <h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>详见<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
-<pre><code>npm install -g hexo-cli
+<pre><code>$ npm install -g hexo-cli
 </code></pre><hr>
-<h2 id="u521B_u5EFA_u535A_u5BA2"><a href="#u521B_u5EFA_u535A_u5BA2" class="headerlink" title="创建博客"></a>创建博客</h2><p>1.初始化:<code>hexo init &lt;demo&gt;</code> 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。</p>
-<p>2.初始化后，要记得在当前文件夹下运行<code>npm install</code>命令，安装依赖的包。</p>
-<p>3.创建博文<code>hexo new [layout] &lt;title&gt;</code>,[layout]可以不指定。</p>
-<p>4.生成静态文件 <code>hexo generate</code>。</p>
-<p>5.在当前电脑上查看博客<code>hexo server</code>。</p>
-<p>6.根据提示，在浏览器上输入相应的地址，即可查看。</p>
+<h2 id="u521B_u5EFA_u535A_u5BA2"><a href="#u521B_u5EFA_u535A_u5BA2" class="headerlink" title="创建博客"></a>创建博客</h2><ol>
+<li><p>初始化:<code>hexo init &lt;demo&gt;</code> 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。</p>
+</li>
+<li><p>初始化后，要记得在当前文件夹下运行<code>npm install</code>命令，安装依赖的包。</p>
+</li>
+<li><p>创建博文<code>hexo new [layout] &lt;title&gt;</code>,[layout]可以不指定。</p>
+</li>
+<li><p>生成静态文件 <code>hexo generate</code>。</p>
+</li>
+<li><p>在当前电脑上查看博客<code>hexo server</code>。</p>
+</li>
+<li><p>根据提示，在浏览器上输入相应的地址，即可查看。</p>
+</li>
+</ol>
 <p>示例：</p>
-<pre><code>hexo init my-first-blog   //初始化
-npm install      //安装依赖包
+<pre><code>$ hexo init my-first-blog   //初始化
+$ npm install      //安装依赖包
 
-hexo new &apos;my new post&apos;　　//新建一篇博文
-hexo generate　　　//生成静态文件
-hexo server      //然后到浏览器输入localhost:4000(根据提示)看看。
-</code></pre><hr>
-<h2 id="Hexo_u9519_u8BEF_u96C6_u9526"><a href="#Hexo_u9519_u8BEF_u96C6_u9526" class="headerlink" title="Hexo错误集锦"></a>Hexo错误集锦</h2><p>下面是一些我在使用Hexo过程中碰到的一些问题</p>
+$ hexo new &apos;my new post&apos;　　//新建一篇博文
+$ hexo generate　　　//生成静态文件
+$ hexo server      //启动服务
+</code></pre><p>然后根据提示，到浏览器输入相应地址(如：localhost:4000)，查看刚才创建的内容。</p>
+<hr>
+<h2 id="u4E0A_u4F20_u5230github"><a href="#u4E0A_u4F20_u5230github" class="headerlink" title="上传到github"></a>上传到github</h2><ol>
+<li>按官网的方式配置github，单击查看<a href="https://help.github.com/articles/set-up-git/" target="_blank" rel="external">配置方法</a>。</li>
+<li>配置过程需要设置SSH keys，单击查看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">配置方法</a>。</li>
+<li>在github中创建一个repository，记下路径(如<a href="https://github.com/username/username.github.io)。" target="_blank" rel="external">https://github.com/username/username.github.io)。</a></li>
+<li>用npm安装 <code>hexo-deployer-git</code>.</li>
+<li>设置主目录下的<code>_config.yml</code>文件。</li>
+<li>执行命令<code>hexo deploy</code><br><code>_config.yml</code>文件的主要设置内容如下:</li>
+</ol>
+<pre><code># URL
+## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
+url: http://username.github.io
+
+deploy:
+  type: git
+  repo: https://github.com/username/username.github.io
+</code></pre><p>接下来在终端中执行</p>
+<pre><code>$ npm install hexo-deployer-git --save
+$ hexo deploy
+</code></pre><p> 传输完成后，在浏览器中输入刚才在url中写下的地址访问博客(如：username.github.io)。</p>
+<hr>
+<h2 id="u9519_u8BEF_u96C6_u9526"><a href="#u9519_u8BEF_u96C6_u9526" class="headerlink" title="错误集锦"></a>错误集锦</h2><p>下面是一些我在使用Hexo过程中碰到的一些问题</p>
 <h3 id="Cannot_read_property__u2018offset_u2019_of_null"><a href="#Cannot_read_property__u2018offset_u2019_of_null" class="headerlink" title="Cannot　read　property　‘offset’　of　null"></a>Cannot　read　property　‘offset’　of　null</h3><p><strong>原因:</strong> _config.yml下timezone配置错误。</p>
 <p><strong>解决方法:</strong> 将timezone配置成时区名称。</p>
 <p><strong>例如:</strong> <code>timezone:Asia/Shanghai</code></p>
-
+<h3 id="ENOSPC_Error__28Linux_29"><a href="#ENOSPC_Error__28Linux_29" class="headerlink" title="ENOSPC Error (Linux)"></a>ENOSPC Error (Linux)</h3><p><a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">官网</a>上有这个错误的解释,处理过程如下：</p>
+<p>运行 <code>npm dedupe</code>,如果这运行这条命令不能解决问题，则输入下面的命令：</p>
+<pre><code>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciio9gmlv00098cpvg7ee1zio" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciiob19by0009smpvsp3luzdh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -181,7 +213,7 @@ server.listen(3000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/socket-io/" data-id="ciio9gmlr00018cpvlaqni695" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/socket-io/" data-id="ciiob19bt0001smpvw29bte6a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
@@ -224,7 +256,7 @@ server.listen(3000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/learning-blog/" data-id="ciio9gmlu00068cpvcszbcykk" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/learning-blog/" data-id="ciiob19bx0006smpvlm7y3zvb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -269,7 +301,7 @@ server.listen(3000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/hello-world/" data-id="ciio9gml300008cpvvay9riqf" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/hello-world/" data-id="ciiob19bp0000smpvnoukal9p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +359,7 @@ server.listen(3000);
       <ul>
         
           <li>
-            <a href="/2015/12/27/hexo使用方法/">hexo使用方法</a>
+            <a href="/2015/12/27/hexo使用方法/">hexo学习笔记</a>
           </li>
         
           <li>
