@@ -5,22 +5,31 @@
   
   <title>hexo使用方法 | 厚积薄发，时日必达</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo错误集锦Cannot　read　property　‘offset’　of　null原因: _config.yml下timezone配置错误。
-解决方法: 将timezone配置成时区名称。
-例如: timezone:Asia/Shanghai">
+  <meta name="description" content="安装详见hexo官网
+npm install -g hexo-cli
+
+创建博客1.初始化:hexo init &amp;lt;demo&amp;gt; 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。
+2.初始化后，要记得在当前文件夹下运行npm install命令，安装依赖的包。
+3.创建博文hexo new [layout] &amp;lt;title&amp;gt;,[layout]可以不指定。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo使用方法">
 <meta property="og:url" content="http://mosicer.github.io/2015/12/27/hexo使用方法/index.html">
 <meta property="og:site_name" content="厚积薄发，时日必达">
-<meta property="og:description" content="Hexo错误集锦Cannot　read　property　‘offset’　of　null原因: _config.yml下timezone配置错误。
-解决方法: 将timezone配置成时区名称。
-例如: timezone:Asia/Shanghai">
-<meta property="og:updated_time" content="2015-12-27T03:42:19.000Z">
+<meta property="og:description" content="安装详见hexo官网
+npm install -g hexo-cli
+
+创建博客1.初始化:hexo init &amp;lt;demo&amp;gt; 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。
+2.初始化后，要记得在当前文件夹下运行npm install命令，安装依赖的包。
+3.创建博文hexo new [layout] &amp;lt;title&amp;gt;,[layout]可以不指定。">
+<meta property="og:updated_time" content="2015-12-27T08:10:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用方法">
-<meta name="twitter:description" content="Hexo错误集锦Cannot　read　property　‘offset’　of　null原因: _config.yml下timezone配置错误。
-解决方法: 将timezone配置成时区名称。
-例如: timezone:Asia/Shanghai">
+<meta name="twitter:description" content="安装详见hexo官网
+npm install -g hexo-cli
+
+创建博客1.初始化:hexo init &amp;lt;demo&amp;gt; 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。
+2.初始化后，要记得在当前文件夹下运行npm install命令，安装依赖的包。
+3.创建博文hexo new [layout] &amp;lt;title&amp;gt;,[layout]可以不指定。">
   
     <link rel="alternative" href="/atom.xml" title="厚积薄发，时日必达" type="application/atom+xml">
   
@@ -92,14 +101,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hexo_u9519_u8BEF_u96C6_u9526"><a href="#Hexo_u9519_u8BEF_u96C6_u9526" class="headerlink" title="Hexo错误集锦"></a>Hexo错误集锦</h2><h3 id="Cannot_read_property__u2018offset_u2019_of_null"><a href="#Cannot_read_property__u2018offset_u2019_of_null" class="headerlink" title="Cannot　read　property　‘offset’　of　null"></a>Cannot　read　property　‘offset’　of　null</h3><p><strong>原因:</strong> _config.yml下timezone配置错误。</p>
+        <hr>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>详见<a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
+<pre><code>npm install -g hexo-cli
+</code></pre><hr>
+<h2 id="u521B_u5EFA_u535A_u5BA2"><a href="#u521B_u5EFA_u535A_u5BA2" class="headerlink" title="创建博客"></a>创建博客</h2><p>1.初始化:<code>hexo init &lt;demo&gt;</code> 如果指定 demo，会在目前的文件夹下建立一个名为 demo 的文件夹。</p>
+<p>2.初始化后，要记得在当前文件夹下运行<code>npm install</code>命令，安装依赖的包。</p>
+<p>3.创建博文<code>hexo new [layout] &lt;title&gt;</code>,[layout]可以不指定。</p>
+<p>4.生成静态文件 <code>hexo generate</code>。</p>
+<p>5.在当前电脑上查看博客<code>hexo server</code>。</p>
+<p>6.根据提示，在浏览器上输入相应的地址，即可查看。</p>
+<p>示例：</p>
+<pre><code>hexo init my-first-blog   //初始化
+npm install      //安装依赖包
+
+hexo new &apos;my new post&apos;　　//新建一篇博文
+hexo generate　　　//生成静态文件
+hexo server      //然后到浏览器输入localhost:4000(根据提示)看看。
+</code></pre><hr>
+<h2 id="Hexo_u9519_u8BEF_u96C6_u9526"><a href="#Hexo_u9519_u8BEF_u96C6_u9526" class="headerlink" title="Hexo错误集锦"></a>Hexo错误集锦</h2><p>下面是一些我在使用Hexo过程中碰到的一些问题</p>
+<h3 id="Cannot_read_property__u2018offset_u2019_of_null"><a href="#Cannot_read_property__u2018offset_u2019_of_null" class="headerlink" title="Cannot　read　property　‘offset’　of　null"></a>Cannot　read　property　‘offset’　of　null</h3><p><strong>原因:</strong> _config.yml下timezone配置错误。</p>
 <p><strong>解决方法:</strong> 将timezone配置成时区名称。</p>
 <p><strong>例如:</strong> <code>timezone:Asia/Shanghai</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciio85jqw0009nvpv38te6i43" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciio98alp0009w6pv55h4eou9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
