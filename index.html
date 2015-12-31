@@ -145,7 +145,7 @@ $ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciiob19by0009smpvsp3luzdh" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/hexo使用方法/" data-id="ciist0kt800091gpv7aiapk45" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -184,36 +184,25 @@ $ hexo deploy
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install socketio
-</code></pre><p>下载源码：<a href="https://github.com/Automattic/socket.io" target="_blank" rel="external">https://github.com/Automattic/socket.io</a>。<br>访问管网：<a href="http://socket.io" target="_blank" rel="external">http://socket.io</a>。</p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install socket.io --save</span><br></pre></td></tr></table></figure>
+<p>下载源码：<a href="https://github.com/Automattic/socket.io" target="_blank" rel="external">https://github.com/Automattic/socket.io</a>。<br>访问管网：<a href="http://socket.io" target="_blank" rel="external">http://socket.io</a>。</p>
 <hr>
-<h2 id="u670D_u52A1_u7AEF"><a href="#u670D_u52A1_u7AEF" class="headerlink" title="服务端"></a>服务端</h2><h3 id="u6CE8_u518C_u4E8B_u4EF6"><a href="#u6CE8_u518C_u4E8B_u4EF6" class="headerlink" title="注册事件"></a>注册事件</h3><pre><code>var io = require(&apos;socket.io&apos;);  //引用模块
-var io = require(&apos;socket.io&apos;)(80);  //监听端口
-io.on(&apos;connection&apos;,function (socket) {
-  //注册连接成功事件
-  socket.on(&apos;disconnect&apos;,function () {
-     //注册断开连接事件
-  });
-});  
-</code></pre><h3 id="u542F_u52A8_u670D_u52A1_28_u4E0Eexpress_u914D_u5408_29"><a href="#u542F_u52A8_u670D_u52A1_28_u4E0Eexpress_u914D_u5408_29" class="headerlink" title="启动服务(与express配合)"></a>启动服务(与express配合)</h3><pre><code>var express = require(&apos;express&apos;);
-var app = express();
-app.get(&apos;/&apos;,function (req,res) {
-  res.status(&apos;200&apos;).send(&apos;message&apos;);
-});
-var server = require(&apos;http&apos;).createServer(app);
-var io = require(&apos;socket.io&apos;)(server);
-io.on(&apos;connection&apos;,function(socket) {
-      //do something
-});
-server.listen(3000);
-</code></pre><hr>
-<h2 id="u5BA2_u6237_u7AEF"><a href="#u5BA2_u6237_u7AEF" class="headerlink" title="客户端"></a>客户端</h2><p>服务端运行后，会自动在根目录下生成客户端的js文件，客户端通过<strong>固定路径</strong><code>/socket.io/socket.io.js</code>添加引用</p>
-<pre><code>&lt;script src=&apos;/socket.io/socket.io.js&apos;&gt;&lt;/script&gt;
-</code></pre>
+<h2 id="u670D_u52A1_u7AEF"><a href="#u670D_u52A1_u7AEF" class="headerlink" title="服务端"></a>服务端</h2><h3 id="u6CE8_u518C_u4E8B_u4EF6"><a href="#u6CE8_u518C_u4E8B_u4EF6" class="headerlink" title="注册事件"></a>注册事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>);  <span class="comment">//引用模块</span></span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(<span class="number">80</span>);  <span class="comment">//监听端口</span></span><br><span class="line">io.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//注册连接成功事件</span></span><br><span class="line">  socket.on(<span class="string">'disconnect'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">//注册断开连接事件</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="u542F_u52A8_u670D_u52A1_28_u4E0Eexpress_u914D_u5408_29"><a href="#u542F_u52A8_u670D_u52A1_28_u4E0Eexpress_u914D_u5408_29" class="headerlink" title="启动服务(与express配合)"></a>启动服务(与express配合)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">  res.status(<span class="string">'200'</span>).send(<span class="string">'message'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">'http'</span>).Server(app);</span><br><span class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(server);</span><br><span class="line"><span class="comment">//注意传入require('socket.io') 的参数。</span></span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">io.on(<span class="string">'connection'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//do something</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="u5BA2_u6237_u7AEF"><a href="#u5BA2_u6237_u7AEF" class="headerlink" title="客户端"></a>客户端</h2><ol>
+<li><strong>引用脚本：</strong> 服务端运行后，会自动在根目录下生成客户端的js文件，客户端可以通过<strong>固定路径</strong>的方式，设置&lt;script&gt;标签的scr属性值为 <code>/socket.io/socket.io.js</code>，引用客户端脚本。</li>
+<li><strong>建立连接：</strong> 通过<code>var socket = io.connect(url)</code>命令，创建与服务器的连接，要注意的是<strong>url</strong>参数应为包含’http://‘ 在内的完整地址，或者相对路径，或者为空。</li>
+<li><strong>接收数据：</strong> 通过<code>socket.on(&#39;event&#39;,function(data) {……})</code>命令，接收从服务端发送的数据。</li>
+<li><strong>发送数据：</strong> 通过<code>socket.emit(&#39;event&#39;,args)</code>命令，将数据args发送给服务器，其中’event’事件为服务端使用’on’方法创建的事件。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">'/socket.io/socket.io.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 注意'/socket.io/socket.io.js'是自动生成的 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line">  var socket = io.connect(url);</span><br><span class="line">    <span class="comment">&lt;!-- 注意connect()的参数url，必须是'http://……' 的完整路径， --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 或者为相对路径，或者为空，不能为类似'/'的内容， --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 否则客户端无法连接，'/socket.io/socket.io.js'也不会产生。 --&gt;</span></span><br><span class="line"></span><br><span class="line">  var socket = io.connect('/'); <span class="comment">&lt;!-- 我尝试用这种写法，则出现过错误。 --&gt;</span></span><br><span class="line"></span><br><span class="line">  socket.on('connect',function() &#123;</span><br><span class="line">    <span class="comment">&lt;!-- 注意客户端的事件名称为'connect',与服务端有所不同. --&gt;</span></span><br><span class="line">    alert('连接成功');</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  socket.on('message',function(data) &#123;</span><br><span class="line">    //注意此命令对应服务端的socket.emit('message',args);</span><br><span class="line">    document.write(data);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  socket.emit('news',args);</span><br><span class="line">    //注意此命令对应服务端的socket.on('news',callback);</span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上内容参考<a href="http://socket.io/docs/#" target="_blank" rel="external">socket.io官方网站</a>。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/socket-io/" data-id="ciiob19bt0001smpvw29bte6a" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/socket-io/" data-id="ciist0kss00011gpv1gfi65xc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
@@ -256,7 +245,7 @@ server.listen(3000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/learning-blog/" data-id="ciiob19bx0006smpvlm7y3zvb" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/learning-blog/" data-id="ciist0ksv00061gpvahy9laso" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +290,7 @@ server.listen(3000);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mosicer.github.io/2015/12/27/hello-world/" data-id="ciiob19bp0000smpvnoukal9p" class="article-share-link">Share</a>
+      <a data-url="http://mosicer.github.io/2015/12/27/hello-world/" data-id="ciist0ksn00001gpvahk616kp" class="article-share-link">Share</a>
       
       
     </footer>
